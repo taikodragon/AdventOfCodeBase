@@ -238,5 +238,33 @@ namespace AdventOfCode.Solutions
                 yield return index;
             }
         }
+
+        public enum CompassDirection
+        {
+            N,
+            NE,
+            E,
+            SE,
+            S,
+            SW,
+            W,
+            NW
+        }
+
+        public static (int x, int y) MoveDirection(this (int, int) start, CompassDirection Direction, int distance = 1)
+        {
+            return (Direction) switch
+            {
+                CompassDirection.N => start.Add((0, distance)),
+                CompassDirection.NE => start.Add((distance, distance)),
+                CompassDirection.E => start.Add((distance, 0)),
+                CompassDirection.SE => start.Add((distance, -distance)),
+                CompassDirection.S => start.Add((0, -distance)),
+                CompassDirection.SW => start.Add((-distance, -distance)),
+                CompassDirection.W => start.Add((-distance, 0)),
+                CompassDirection.NW => start.Add((-distance, distance)),
+                _ => throw new ArgumentException("Direction is not valid", nameof(Direction))
+            };
+        }
     }
 }
