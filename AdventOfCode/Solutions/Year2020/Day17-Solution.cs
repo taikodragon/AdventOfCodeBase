@@ -10,6 +10,7 @@ namespace AdventOfCode.Solutions.Year2020
 
         public Day17() : base(17, 2020, "")
         {
+            UseDebugInput = false;
 
         }
 
