@@ -15,6 +15,7 @@ namespace AdventOfCode.Solutions.Year<YEAR>
 
         public Day<DAY>() : base(<DAY>, <YEAR>, `"`")
         {
+            UseDebugInput = false;
 
         }
 
@@ -32,13 +33,18 @@ namespace AdventOfCode.Solutions.Year<YEAR>
 
 "@
 
-$newDirectory = Join-Path $PSScriptRoot ".." "Solutions" "Year$Year" -Resolve
+$newDirectory = Join-Path $PSScriptRoot ".." "Solutions" "Year$Year"
 
 if(!(Test-Path $newDirectory)) {
     New-Item $newDirectory -ItemType Directory | Out-Null
 }
-
+$debugFile = Join-Path $newDirectory "Day01-debugInput"
+if(!(Test-Path $newDirectory)) {
+    Write-Host $newFile
+    New-Item $newFile -ItemType File -Value "" -Force | Out-Null
+}
 for($i = 1; $i -le 25; $i++) {
+
     $newFile = Join-Path $newDirectory "Day$("{0:00}" -f $i)-Solution.cs"
     if(!(Test-Path $newFile)) {
         Write-Host $newFile

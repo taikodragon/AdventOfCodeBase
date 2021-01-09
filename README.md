@@ -21,9 +21,11 @@ Template project for solving Advent of Code in C#, running on [.NET 5.0](https:/
 * Includes various useful utilities for typical puzzle problems.
 
 ## Getting started
-If you haven't already, use the button shown below (or [this link](https://github.com/sindrekjr/AdventOfCodeBase/generate)) to create a new repository of your own from this template.
+If you haven't already, use the button shown below (or [this link](https://github.com/taikodragon/AdventOfCodeBase/generate)) to create a new repository of your own from this template.
 
 <kbd style>![use-this-template](https://user-images.githubusercontent.com/23259585/95107477-3e522300-073a-11eb-8c80-c0cd4e1b5c11.png)</kbd>
+
+Be sure to create a `config.json` before running the project as it won't be able to fetch your puzzle input if you down.
 
 Feel free to make any modifications you want. However, you probably do not want to remove any files outside of `AdventOfCode/Solutions/` unless you know what you're doing.
 
@@ -60,8 +62,12 @@ Write your code solutions to advent of code within the appropriate day classes i
 ```
 Using `dotnet run` from the root of the repository will also work as long as you specify which project to run by adding `-p AdventOfCode`. Note that your `config.json` must be stored in the location from where you run your project.
 
+### Using the DebugInput
+To specify a debug input instead of your official puzzle input, create a file with the name `DayXX-debugInput` side-by-side with your solution and set the `UseDebugInput` to true.
+You can also directly set the DebugInput value in the constuctor of the solution class if you don't want to use the file.
+
 ### Example projects
-* [sindrekjr/AdventOfCode](https://github.com/sindrekjr/AdventOfCode)
+* [taikodragon/AdventOfCode](https://github.com/taikodragon/AdventOfCode)
 
 ## Notes
 ### Generating Previous Year's Solution Files
@@ -78,6 +84,7 @@ Requires PowerShell v3 or later due to the way `$PSScriptRoot` behaves. If you h
 ```CSharp
 public Day07() : base(07, 2015, "")
 {
+    UseDebugInput = false;
     string[] lines = Input.SplitByNewLine();
     foreach (string line in Lines)
     {
@@ -115,4 +122,4 @@ When running your Solutions with a Debugger attached e.g. [VSCode](https://code.
 Sure! Fork the project, make your changes, and create a pull request. Submitted issues and pull requests are quite welcome.
 
 ## License
-[MIT](https://github.com/sindrekjr/AdventOfCodeBase/blob/master/LICENSE.md)
+[MIT](https://github.com/taikodragon/AdventOfCodeBase/blob/master/LICENSE.md)
